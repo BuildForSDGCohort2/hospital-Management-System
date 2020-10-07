@@ -229,21 +229,11 @@
                             
                                     <li class="treeview <?php echo set_Topmenu('pathology'); ?>">
                                         <a href="<?php echo base_url(); ?>patient/dashboard/search">
-                                            <i class="fas fa-flask"></i> <span> <?php echo $this->lang->line('pathology'); ?></span> 
+                                            <i class="fas fa-flask"></i> <span> Medical Test</span> 
                                         </a>
 
                                     </li>
-                                <?php 
-                            } if ($this->module_lib->hasActive('radiology')) {
-                            ?>
-                            
-                           
-                                    <li class="treeview <?php echo set_Topmenu('radiology'); ?>">
-                                        <a href="<?php echo base_url(); ?>patient/dashboard/radioreport">
-                                            <i class="fas fa-microscope"></i><span> <?php echo $this->lang->line('radiology'); ?></span> 
-                                        </a>
-
-                                    </li>
+                                
                                 <?php 
                             }  if ($this->module_lib->hasActive('operation_theatre')) {
                             ?>

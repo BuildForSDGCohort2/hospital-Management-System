@@ -20,7 +20,7 @@
                     ?>
                     <li class="treeview <?php echo set_Topmenu('front_office'); ?>">
                         <a  href="<?php echo base_url(); ?>admin/appointment/search">
-                            <i class="fas fa-dungeon"></i> <span><?php echo $this->lang->line('front_office'); ?></span>
+                            <i class="fas fa-dungeon"></i> <span>Medical Records</span>
                         </a>
 
                     </li>
@@ -72,27 +72,14 @@
                     ?>      
                     <li class="treeview <?php echo set_Topmenu('pathology'); ?>">
                         <a href="<?php echo base_url(); ?>admin/pathology/search">
-                            <i class="fas fa-flask"></i> <span><?php echo $this->lang->line('pathology'); ?></span>
+                            <i class="fas fa-flask"></i> <span>Medical Test</span>
 
                         </a>
                     </li>
                 <?php }
             }
             ?>
-<?php
-if ($this->module_lib->hasActive('radiology')) {
-    if ($this->rbac->hasPrivilege('radiology test', 'can_view')) {
-        ?>  
-                    <li class="treeview <?php echo set_Topmenu('radiology'); ?>"> 
-                        <a href="<?php echo base_url(); ?>admin/radio/search">
-                            <i class="fas fa-microscope"></i> <span><?php echo $this->lang->line('radiology'); ?></span>
-
-                        </a>
-
-                    </li>
-                <?php }
-            }
-            ?>    
+   
 <?php
 if ($this->module_lib->hasActive('operation_theatre')) {
     if ($this->rbac->hasPrivilege('ot_patient', 'can_view')) {
@@ -117,19 +104,7 @@ if ($this->module_lib->hasActive('blood_bank')) {
                         </a>
 
                     </li>
-    <?php }
-}
-?>
-<?php
-if ($this->module_lib->hasActive('tpa_management')) {
-    if ($this->rbac->hasPrivilege('organisation', 'can_view')) {
-        ?>      
-                    <li class="treeview <?php echo set_Topmenu('tpa_management'); ?>">
-                        <a href="<?php echo base_url() ?>admin/tpamanagement">
-                            <i class="fas fa-umbrella"></i> <span><?php echo $this->lang->line('tpa_management'); ?></span>
-                        </a>
-
-                    </li>
+   
         <?php
     }
 }
@@ -246,7 +221,7 @@ if ($this->module_lib->hasActive('download_center')) {
         ?>
                     <li class="treeview <?php echo set_Topmenu('Download Center'); ?>">
                         <a href="<?php echo base_url(); ?>admin/content">
-                            <i class="fas fa-download"></i> <span><?php echo $this->lang->line('download_center'); ?></span>
+                            <i class="fas fa-download"></i> <span>Document</span>
                         </a>
 
                     </li>
@@ -273,24 +248,7 @@ if ($this->module_lib->hasActive('download_center')) {
                     <?php
                 }
             }
-            if ($this->module_lib->hasActive('front_cms')) {
-                if (($this->rbac->hasPrivilege('event', 'can_view') ||
-                        $this->rbac->hasPrivilege('gallery', 'can_view') ||
-                        $this->rbac->hasPrivilege('notice', 'can_view') ||
-                        $this->rbac->hasPrivilege('media_manager', 'can_view') ||
-                        $this->rbac->hasPrivilege('pages', 'can_view') ||
-                        $this->rbac->hasPrivilege('menus', 'can_view') ||
-                        $this->rbac->hasPrivilege('banner_images', 'can_view'))) {
-                    ?>
-                    <li class="treeview <?php echo set_Topmenu('Front CMS'); ?>">
-                        <a href="<?php echo base_url(); ?>admin/front/page">
-                            <i class="fas fa-solar-panel"></i> <span><?php echo $this->lang->line('front_cms'); ?></span> 
-                        </a>
-
-                    </li>
-        <?php
-    }
-}
+           
 
 if ($this->module_lib->hasActive('reports')) {
     if (($this->rbac->hasPrivilege('transaction_report', 'can_view')) || ($this->rbac->hasPrivilege('appointment_report', 'can_view')) || ($this->rbac->hasPrivilege('opd_report', 'can_view')) || ($this->rbac->hasPrivilege('ipd_report', 'can_view')) || ($this->rbac->hasPrivilege('discharge_patient_report', 'can_view')) || ($this->rbac->hasPrivilege('pharmacy_bill_report', 'can_view')) || ($this->rbac->hasPrivilege('pathology_patient_report', 'can_view')) || ($this->rbac->hasPrivilege('radiology_patient_report', 'can_view')) || ($this->rbac->hasPrivilege('ot_report', 'can_view')) || ($this->rbac->hasPrivilege('blood_issue_report', 'can_view')) || ($this->rbac->hasPrivilege('blood_donor_report', 'can_view')) || ($this->rbac->hasPrivilege('tpa_report', 'can_view')) || ($this->rbac->hasPrivilege('income_report', 'can_view')) || ($this->rbac->hasPrivilege('expense_report', 'can_view')) || ($this->rbac->hasPrivilege('ambulance_report', 'can_view')) || ($this->rbac->hasPrivilege('payroll_month_report', 'can_view')) || ($this->rbac->hasPrivilege('payroll_report', 'can_view')) || ($this->rbac->hasPrivilege('staff_attendance_report', 'can_view')) || ($this->rbac->hasPrivilege('transaction_report', 'can_view')) || ($this->rbac->hasPrivilege('user_log', 'can_view')) || ($this->rbac->hasPrivilege('patient_login_credential', 'can_view')) || ($this->rbac->hasPrivilege('email_sms_log', 'can_view')) || ($this->rbac->hasPrivilege('income_group_report', 'can_view')) || ($this->rbac->hasPrivilege('expense_group_report', 'can_view')) || ($this->rbac->hasPrivilege('inventory_stock_report', 'can_view')) || ($this->rbac->hasPrivilege('add_item_report', 'can_view')) || ($this->rbac->hasPrivilege('issue_inventory_report', 'can_view'))) {
@@ -350,16 +308,11 @@ if ($this->module_lib->hasActive('reports')) {
 
                                 if ($this->module_lib->hasActive('pathology')) {
                                     if ($this->rbac->hasPrivilege('pathology_patient_report', 'can_view')) {
-                                        ?><li class="<?php echo set_Submenu('admin/pathology/pathologyreport'); ?>"><a href="<?php echo base_url(); ?>admin/pathology/pathologyreport"><i class="fas fa-angle-right"></i> <?php echo $this->lang->line('pathology') . " " . $this->lang->line('patient') . " " . $this->lang->line('report'); ?></a></li>
+                                        ?><li class="<?php echo set_Submenu('admin/pathology/pathologyreport'); ?>"><a href="<?php echo base_url(); ?>admin/pathology/pathologyreport"><i class="fas fa-angle-right"></i> Medical Test</a></li>
                                         <?php
                                     }
                                 }
-                                if ($this->module_lib->hasActive('radiology')) {
-                                    if ($this->rbac->hasPrivilege('radiology_patient_report', 'can_view')) {
-                                        ?><li class="<?php echo set_Submenu('admin/radio/radiologyreport'); ?>"><a href="<?php echo base_url(); ?>admin/radio/radiologyreport"><i class="fas fa-angle-right"></i> <?php echo $this->lang->line('radiology') . " " . $this->lang->line('patient') . " " . $this->lang->line('report'); ?></a></li>
-                                        <?php
-                                    }
-                                }
+                               
                                 if ($this->module_lib->hasActive('operation_theatre')) {
                                     if ($this->rbac->hasPrivilege('ot_report', 'can_view')) {
                                         ?><li class="<?php echo set_Submenu('admin/operationtheatre/otreport'); ?>"><a href="<?php echo base_url(); ?>admin/operationtheatre/otreport"><i class="fas fa-angle-right"></i> <?php echo $this->lang->line('ot') . " " . $this->lang->line('report'); ?></a></li>
@@ -540,7 +493,7 @@ if ($this->module_lib->hasActive('reports')) {
                         if ($this->module_lib->hasActive('front_office')) {
                             if ($this->rbac->hasPrivilege('setup_front_office', 'can_view')) {
                                 ?>
-                                <li class="<?php echo set_Submenu('admin/visitorspurpose'); ?>"><a href="<?php echo base_url(); ?>admin/visitorspurpose"><i class="fas fa-angle-right"></i> <?php echo $this->lang->line('front_office'); ?></a></li>
+                                <li class="<?php echo set_Submenu('admin/visitorspurpose'); ?>"><a href="<?php echo base_url(); ?>admin/visitorspurpose"><i class="fas fa-angle-right"></i> Reception</a></li>
                                 <?php
                             }
                         }
@@ -554,17 +507,11 @@ if ($this->module_lib->hasActive('reports')) {
                         if ($this->module_lib->hasActive('pathology')) {
                             if ($this->rbac->hasPrivilege('pathology_category', 'can_view')) {
                                 ?>
-                                <li class="<?php echo set_Submenu('addCategory/index'); ?>"><a href="<?php echo base_url(); ?>admin/pathologycategory/addcategory"><i class="fas fa-angle-right"></i> <?php echo $this->lang->line('pathology'); ?></a></li>
+                                <li class="<?php echo set_Submenu('addCategory/index'); ?>"><a href="<?php echo base_url(); ?>admin/pathologycategory/addcategory"><i class="fas fa-angle-right"></i> Medical Test</a></li>
                                 <?php
                             }
                         }
-                        if ($this->module_lib->hasActive('radiology')) {
-                            if ($this->rbac->hasPrivilege('radiology_category', 'can_view')) {
-                                ?>
-                                <li class="<?php echo set_Submenu('addlab/index'); ?>"><a href="<?php echo base_url(); ?>admin/lab/addLab"><i class="fas fa-angle-right"></i> <?php echo $this->lang->line('radiology'); ?></a></li>
-                                <?php
-                            }
-                        }
+                        
                         if (($this->module_lib->hasActive('income')) || ($this->module_lib->hasActive('expense'))) {
 
                             if (($this->rbac->hasPrivilege('income_head', 'can_view')) || ($this->rbac->hasPrivilege('income_head', 'can_view'))) {

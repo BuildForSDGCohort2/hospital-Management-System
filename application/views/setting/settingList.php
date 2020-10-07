@@ -125,24 +125,9 @@ $genderList = $this->customlib->getGender();
 
                             <hr style="width: 98.9%; margin: 32px auto 20px;" />
                             <div class="col-md-12 col-sm-12">   
-                                <label for="input-type"><?php echo $this->lang->line('current_theme'); ?></label></div>
+                                <label for="input-type"></label></div>
                         </div>    
-                        <div class="row">
-                            <div class="col-md-3 col-sm-3 col-xs-6">
-                                <img class="<?php echo ($settinglist[0]['theme'] == "default.jpg") ? "radioactive" : ""; ?> img-responsive radioborder" src="<?php echo base_url(); ?>styles/images/default.jpg">
-                            </div>
-                            <div class="col-md-3 col-sm-3 col-xs-6">
-                                <img class="<?php echo ($settinglist[0]['theme'] == "red.jpg") ? "radioactive" : ""; ?> img-responsive radioborder" src="<?php echo base_url(); ?>styles/images/red.jpg">
-                            </div>
-                            <div class="col-md-3 col-sm-3 col-xs-6">
-                                <img class="<?php echo ($settinglist[0]['theme'] == "blue.jpg") ? "radioactive" : ""; ?> img-responsive radioborder" src="<?php echo base_url(); ?>styles/images/blue.jpg">
-
-                            </div>
-                            <div class="col-md-3 col-sm-3 col-xs-6">
-
-                                <img class="<?php echo ($settinglist[0]['theme'] == "gray.jpg") ? "radioactive" : ""; ?> img-responsive radioborder" src="<?php echo base_url(); ?>styles/images/gray.jpg">
-                            </div>
-                        </div>
+                       
 
 
 

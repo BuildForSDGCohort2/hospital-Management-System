@@ -177,8 +177,7 @@
                                         <img src="<?php echo $logo_image; ?>" class="logowidth">
 
                                     </div>
-                                    <div class="form-top-right"> <i class="fa fa-key"></i>
-                                    </div>
+                                    
                                 </div>
                                 <div class="form-bottom">
                                     <h3 class="font-white"><?php echo $this->lang->line('user_login'); ?></h3>

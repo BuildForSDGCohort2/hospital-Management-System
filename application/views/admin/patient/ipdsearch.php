@@ -1217,7 +1217,7 @@ $genderList = $this->customlib->getGender();
     function get_PatientDetails(id) {
         //$("#schedule_charge").html("schedule_charge");
         // $('#guardian_name').html("Null");
-        var base_url = "<?php echo base_url(); ?>styles/images/loading.gif";
+        var base_url = "<?php echo base_url(); ?>backend/images/loading.gif";
         $("#ajax_load").html("<center><img src='" + base_url + "'/>");
         $.ajax({
             url: '<?php echo base_url(); ?>admin/patient/patientDetails',

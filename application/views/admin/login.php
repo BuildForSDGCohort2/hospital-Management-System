@@ -97,9 +97,7 @@
                                     <div class="form-top-left">
                                         <img src="<?php echo $logo_image; ?>" style="height: 30px;">    
                                     </div>
-                                    <div class="form-top-right">
-                                        <i class="fa fa-key"></i>
-                                    </div>
+                                    
                                 </div>
 
                                 <div class="form-bottom">

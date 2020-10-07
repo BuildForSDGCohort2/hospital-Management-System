@@ -406,7 +406,7 @@
 
 
 <script src="<?php echo base_url() ?>styles/js/Chart.bundle.js"></script>
-<script src="<?php echo base_url() ?>backend/js/utils.js"></script>
+<script src="<?php echo base_url() ?>styles/js/utils.js"></script>
 
 <script type="text/javascript">
 

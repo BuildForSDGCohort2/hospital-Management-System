@@ -15,8 +15,7 @@
             <?php } ?>  
             <?php if ($this->rbac->hasPrivilege('payment_methods', 'can_view')) { ?>  
                 <li><a class="<?php echo set_Innermenu('admin/paymentsettings'); ?>" href="<?php echo base_url(); ?>admin/paymentsettings"><?php echo $this->lang->line('payment_methods'); ?></a></li> 
-            <?php } if ($this->rbac->hasPrivilege('front_cms_setting', 'can_view')) { ?>
-                <li><a class="<?php echo set_Innermenu('admin/frontcms/index'); ?>" href="<?php echo base_url(); ?>admin/frontcms"><?php echo $this->lang->line('front_cms_setting'); ?></a></li>        <?php } ?>  <?php if ($this->rbac->hasPrivilege('superadmin')) { ?>                                                     
+                                                                 
                 <li><a class="<?php echo set_Innermenu('admin/roles'); ?>" href="<?php echo base_url(); ?>admin/roles"><?php echo $this->lang->line('roles_permissions'); ?></a></li> 
             <?php } ?>
             <li><a class="<?php echo set_Innermenu('admin/backup'); ?>" href="<?php echo base_url(); ?>admin/admin/backup"><?php echo $this->lang->line('backup / restore'); ?></a></li> 

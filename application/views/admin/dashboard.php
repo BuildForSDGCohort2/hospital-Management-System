@@ -72,8 +72,50 @@
         </div><!--./row-->
 
         <div class="row">
+        </div><!--./row-->
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-12 col80">
+                <?php
+                if ($this->rbac->hasPrivilege('calendar_to_do_list', 'can_view')) {
+                    ?>
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title"><?php echo $this->lang->line('calendar'); ?></h3>
+                            <div class="box-tools pull-right">
+                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="chart"> 
+                                <div id="calendar" ></div>
+                            </div>
+                        </div>
+                    </div>
+            <?php } ?>
+            </div><!--./col-lg-9-->
+            <?php if ($this->rbac->hasPrivilege('staff_role_count_widget', 'can_view')) {
+                ?>
 
-            <?php
+                <div class="col-lg-3 col-md-3 col-sm-12 col20">
+                    <?php foreach ($roles as $key => $value) {
+                        ?>
+
+                        <div class="info-box">
+                            <a href="<?php echo base_url() . "admin/staff" ?>">
+                                <span class="info-box-icon bg-yellow"><i class="fas fa-user-secret"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text"><?php echo $key; ?></span>
+                                    <span class="info-box-number"><?php echo $value; ?></span>
+                                </div>
+                            </a>
+                        </div>
+    <?php } ?>
+
+                </div><!--./col-lg-3-->
+<?php } ?>
+
+<?php
             if ($this->module_lib->hasActive('OPD')) {
                 if ($this->rbac->hasPrivilege('opd_income_widget', 'can_view')) {
                     ?>
@@ -108,7 +150,7 @@
                     <div class="col-lg-2 col-md-3 col-sm-6 col20">
                         <div class="info-box">
                             <a href="<?php echo site_url('admin/patient/ipdsearch') ?>">
-                                <span class="info-box-icon bg-green"><i class="fas fa-procedures"></i></span>
+                                <span class="info-box-icon bg-blue"><i class="fas fa-procedures"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text"><?php echo $this->lang->line('ipd') . " " . $this->lang->line('income'); ?></span>
                                     <span class="info-box-number"><?php
@@ -161,9 +203,9 @@
                     <div class="col-lg-2 col-md-3 col-sm-6 col20">
                         <div class="info-box">
                             <a href="<?php echo site_url('admin/pathology/search') ?>">
-                                <span class="info-box-icon bg-green"><i class="fas fa-flask"></i></span>
+                                <span class="info-box-icon bg-red"><i class="fas fa-flask"></i></span>
                                 <div class="info-box-content">
-                                    <span class="info-box-text"><?php echo $this->lang->line('pathology') . " " . $this->lang->line('income'); ?></span>
+                                    <span class="info-box-text">Medical Test</span>
                                     <span class="info-box-number"><?php
                                         if (!empty($pathology_income)) {
                                             echo $currency_symbol . $pathology_income;
@@ -179,34 +221,7 @@
                 }
             }
             ?>
-            <?php
-            if ($this->module_lib->hasActive('radiology')) {
-                if ($this->rbac->hasPrivilege('radiology_income_widget', 'can_view')) {
-                    ?>
-
-
-                    <div class="col-lg-2 col-md-3 col-sm-6 col20">
-                        <div class="info-box">
-                            <a href="<?php echo site_url('admin/radio/search') ?>">
-                                <span class="info-box-icon bg-green"><i class="fas fa-microscope"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text"><?php echo $this->lang->line('radiology') . " " . $this->lang->line('income'); ?></span>
-                                    <span class="info-box-number"><?php
-                                        if (!empty($radiology_income)) {
-                                            echo $currency_symbol . $radiology_income;
-                                        } else {
-                                            echo "0";
-                                        }
-                                        ?></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div><!--./col-lg-2-->
-                    <?php
-                }
-            }
-            ?>
-
+            
             <?php
             if ($this->module_lib->hasActive('operation_theatre')) {
                 if ($this->rbac->hasPrivilege('ot_income_widget', 'can_view')) {
@@ -216,7 +231,7 @@
                     <div class="col-lg-2 col-md-3 col-sm-6 col20">
                         <div class="info-box">
                             <a href="<?php echo site_url('admin/operationtheatre/otsearch') ?>">
-                                <span class="info-box-icon bg-green"><i class="fas fa-scissors"></i></span>
+                                <span class="info-box-icon bg-blue"><i class="fas fa-scissors"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text"><?php echo $this->lang->line('operation_theatre') . " " . $this->lang->line('income'); ?></span>
                                     <span class="info-box-number"><?php
@@ -243,7 +258,7 @@
                     <div class="col-lg-2 col-md-3 col-sm-6 col20">
                         <div class="info-box">
                             <a href="<?php echo site_url('admin/bloodbank/issue') ?>">
-                                <span class="info-box-icon bg-green"><i class="fas fa-tint"></i></span>
+                                <span class="info-box-icon bg-red"><i class="fas fa-tint"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text"><?php echo $this->lang->line('blood_bank') . " " . $this->lang->line('income'); ?></span>
                                     <span class="info-box-number"><?php
@@ -271,7 +286,7 @@
                          ">
                         <div class="info-box">
                             <a href="<?php echo site_url('admin/vehicle/search') ?>">
-                                <span class="info-box-icon bg-green"><i class="fas fa-ambulance"></i></span>
+                                <span class="info-box-icon bg-red"><i class="fas fa-ambulance"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text"><?php echo $this->lang->line('ambulance') . " " . $this->lang->line('income'); ?></span>
                                     <span class="info-box-number"><?php
@@ -295,7 +310,7 @@
                         <a href="<?php echo site_url('admin/income') ?>">
                             <span class="info-box-icon bg-green"><i class="fas fa-money-bill-wave"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text"><?php echo $this->lang->line('general') . " " . $this->lang->line('income'); ?></span>
+                                <span class="info-box-text">Total Income</span>
                                 <span class="info-box-number"><?php
                                     if (!empty($general_income)) {
                                         echo $currency_symbol . $general_income;
@@ -315,7 +330,7 @@
                         <a href="<?php echo site_url('admin/expense') ?>">
                             <span class="info-box-icon expenes-red"><i class="fab fa-creative-commons-nc"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text"><?php echo $this->lang->line('expenses'); ?></span>
+                                <span class="info-box-text">Total Expenses</span>
                                 <span class="info-box-number"><?php
                                     if (!empty($expense->amount)) {
                                         echo $currency_symbol . number_format($expense->amount, 2);
@@ -371,48 +386,7 @@
                     </div>
                 </div><!--./col-lg-5-->
 <?php } ?>
-        </div><!--./row-->
-        <div class="row">
-            <div class="col-lg-9 col-md-9 col-sm-12 col80">
-                <?php
-                if ($this->rbac->hasPrivilege('calendar_to_do_list', 'can_view')) {
-                    ?>
-                    <div class="box box-info">
-                        <div class="box-header with-border">
-                            <h3 class="box-title"><?php echo $this->lang->line('calendar'); ?></h3>
-                            <div class="box-tools pull-right">
-                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                                <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                            </div>
-                        </div>
-                        <div class="box-body">
-                            <div class="chart"> 
-                                <div id="calendar" ></div>
-                            </div>
-                        </div>
-                    </div>
-            <?php } ?>
-            </div><!--./col-lg-9-->
-            <?php if ($this->rbac->hasPrivilege('staff_role_count_widget', 'can_view')) {
-                ?>
 
-                <div class="col-lg-3 col-md-3 col-sm-12 col20">
-                    <?php foreach ($roles as $key => $value) {
-                        ?>
-
-                        <div class="info-box">
-                            <a href="<?php echo base_url() . "admin/staff" ?>">
-                                <span class="info-box-icon bg-yellow"><i class="fas fa-user-secret"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text"><?php echo $key; ?></span>
-                                    <span class="info-box-number"><?php echo $value; ?></span>
-                                </div>
-                            </a>
-                        </div>
-    <?php } ?>
-
-                </div><!--./col-lg-3-->
-<?php } ?>
         </div><!--./row-->  
     </section>
 </div>
